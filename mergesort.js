@@ -1,42 +1,23 @@
-// Merge Sort Implentation (Recursion)
-function mergeSort (items) {
-	// No need to sort the array if the array only has one element or empty
-	if (items.length <= 1) {
-	  return items;
-	}
-	// In order to divide the array in half, we need to figure out the middle
-	const middle = Math.floor(items.length / 2);
-  
-	// This is where we will be dividing the array into left and right
-	const left = items.slice(0, middle);
-	const right = items.slice(middle);
-  
-	// Using recursion to combine the left and right
+function mergeSort (data) {
+	if (data.length <= 1) {
+	  return data;}
+	const getMid = Math.floor(data.length / 2);
+	const first = data.slice(0, getMid);
+	const second = data.slice(getMid);
 	return merge(
-	  mergeSort(left), mergeSort(right)
-	);
-  }
-  // Merge the two arrays: left and right
-  function merge (left, right) {
-	let resultArray = [], leftIndex = 0, rightIndex = 0;
+	  mergeSort(first), mergeSort(second)); }
   
-	// We will concatenate values into the resultArray in order
-	while (leftIndex < left.length && rightIndex < right.length) {
-	  if (left[leftIndex] < right[rightIndex]) {
-		resultArray.push(left[leftIndex]);
-		leftIndex++; // move left array cursor
+  function merge (first, second) {
+	let mergeArray = [], firstInd = 0, seconInd = 0;
+	while (firstInd < first.length && seconInd < second.length) {
+	  if (first[firstInd] < second[seconInd]) {
+		mergeArray.push(first[firstInd]);
+		firstInd++;
 	  } else {
-		resultArray.push(right[rightIndex]);
-		rightIndex++; // move right array cursor
-	  }
-	}
-  
-	// We need to concat here because there will be one element remaining
-	// from either left OR the right
-	return resultArray
-			.concat(left.slice(leftIndex))
-			.concat(right.slice(rightIndex));
-  }
-  if (items.length <= 1) { 
-	  return items; 
-  }
+		mergeArray.push(second[seconInd]);
+		seconInd++;}}
+	return mergeArray
+			.concat(first.slice(firstInd))
+			.concat(second.slice(seconInd));}
+  if (data.length <= 1) { 
+	  return data; }
