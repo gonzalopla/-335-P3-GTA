@@ -1,45 +1,34 @@
-var items = [5,3,7,6,2,9];
+var data = [5,3,7,6,2,9];
 
-//quicksort
-function swap(items, leftIndex, rightIndex){
-    var temp = items[leftIndex];
-    items[leftIndex] = items[rightIndex];
-    items[rightIndex] = temp;
-}
-function partition(items, left, right) {
-    var pivot   = items[Math.floor((right + left) / 2)], //middle element
-        i       = left, //left pointer
-        j       = right; //right pointer
+function swap(data, firstInd, secondInd){
+    var holder = data[firstInd];
+    data[firstInd] = data[secondInd];
+    data[secondInd] = holder;}
+
+function partition(data, first, second) {
+    var pivot   = data[Math.floor((second + first) / 2)],
+        i       = first, 
+        j       = second; 
     while (i <= j) {
-        while (items[i] < pivot) {
-            i++;
-        }
-        while (items[j] > pivot) {
-            j--;
-        }
+        while (data[i] < pivot) {
+            i++;}
+        while (data[j] > pivot) {
+            j--;}
         if (i <= j) {
-            swap(items, i, j); //sawpping two elements
+            swap(data, i, j); 
             i++;
-            j--;
-        }
-    }
-    return i;
-}
+            j--; }}
+    return i;}
 
-function quickSort(items, left, right) {
+function quickSort(data, first, second) {
     var index;
-    if (items.length > 1) {
-        index = partition(items, left, right); //index returned from partition
-        if (left < index - 1) { //more elements on the left side of the pivot
-            quickSort(items, left, index - 1);
-        }
-        if (index < right) { //more elements on the right side of the pivot
-            quickSort(items, index, right);
-        }
-    }
-    return items;
-}
-// first call to quick sort
-var sortedArray = quickSort(items, 0, items.length - 1);
-console.log(sortedArray); //prints [2,3,5,6,7,9]
+    if (data.length > 1) {
+        index = partition(data, first, second); 
+        if (first < index - 1) { 
+            quickSort(data, first, index - 1); }
+        if (index < second) { quickSort(data, index, second);}}
+    return data;}
+
+var sortedArray = quickSort(data, 0, data.length - 1);
+console.log(sortedArray);
 
