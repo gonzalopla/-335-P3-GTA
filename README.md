@@ -24,7 +24,7 @@ How to handle the 335-p3-gta files to get results:
   (You can move these files elsewhere if you change index.html accordingly.)
 3. Web page links to (loads) styles.css
 4. Web page has some HTML markup for title, header and text.
-5. After body, web page loads two script files one called "cave" another "room" with fcns.
+5. After body, web page loads three script files one called "mergesort" another "quicksort" and the last selectionsort with fcns.
 6. After that, another Script section defines another function.
 7. And then runs some "loose" Javascript commands.
 
@@ -36,11 +36,11 @@ and see what might be going wrong: errors and warnings.
 
 Contents of project:
 	a. selectionsort.js
-	b. index.html
+	b. racemanager.html
 	c. styles.css
 	d. mergesort.js
 	e. readme.md
-  f. quicksort
+   	f. quicksort
 Sources:
 	
 Features:
